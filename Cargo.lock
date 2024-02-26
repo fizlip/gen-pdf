@@ -356,6 +356,8 @@ name = "pdf-gen"
 version = "0.1.0"
 dependencies = [
  "genpdf",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]

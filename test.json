@@ -1,0 +1,779 @@
+[
+  [
+    {
+      "content": "LOGO",
+      "media": null,
+      "id": 1,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 64px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'>LOGO</p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "64px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    },
+    {
+      "content": "**ANSTÄLLNINGSAVTAL**\n\n2024-04-01",
+      "media": null,
+      "id": 18,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><b>ANSTÄLLNINGSAVTAL</b>\n\n2024-04-01</p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 10,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "------------------------------------------",
+      "media": null,
+      "id": 11,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<hr />",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 18,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "Detta är ett anställningsavtal",
+      "media": null,
+      "id": 12,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'>Detta är ett anställningsavtal</p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 13,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 2,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus nunc et, interdum euismod enim congue quis. In auctor et felis vel pharetra. Cras nec felis sapien. Donec non elementum metus. Duist turpis vel magna accumsan fringilla nec vel nulla. Integer euismod interdum elit, quis convallis odio cursus vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.",
+      "media": null,
+      "id": 3,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus nunc et, interdum euismod enim congue quis. In auctor et felis vel pharetra. Cras nec felis sapien. Donec non elementum metus. Duist turpis vel magna accumsan fringilla nec vel nulla. Integer euismod interdum elit, quis convallis odio cursus vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 4,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 5,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 6,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 7,
+      "selected": true,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 8,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 9,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 14,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 15,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 16,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ],
+  [
+    {
+      "content": "<br>",
+      "media": null,
+      "id": 17,
+      "selected": false,
+      "type": "text",
+      "render": "read",
+      "raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><br></p>",
+      "style": {
+        "fontSize": {
+          "cssName": "font-size",
+          "value": "18px"
+        },
+        "paddingLeft": {
+          "cssName": "padding-left",
+          "value": "0"
+        },
+        "paddingRight": {
+          "cssName": "padding-right",
+          "value": "0"
+        },
+        "fontFamily": {
+          "cssName": "font-family",
+          "value": "arial"
+        },
+        "color": {
+          "cssName": "color",
+          "value": ""
+        },
+        "width": {
+          "cssName": "width",
+          "value": "100%"
+        },
+        "background": {
+          "cssName": "background",
+          "value": "transparent"
+        }
+      }
+    }
+  ]
+]
