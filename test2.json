@@ -1,0 +1,24 @@
+{"Rows":
+  [{"Blocks": 
+    [
+      {
+        "Content": "LOGO",
+        "Media": "null",
+        "Id": 1,
+        "Selected": false,
+        "T": "text",
+        "Render": "read",
+        "Raw": "<p style='font-size: 64px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'>LOGO</p>"
+      },
+      {
+        "Content": "**ANSTÄLLNINGSAVTAL**\n\n2024-04-01",
+        "Media": "null",
+        "Id": 18,
+        "Selected": false,
+        "T": "text",
+        "Render": "read",
+        "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><b>ANSTÄLLNINGSAVTAL</b>\n\n2024-04-01</p>"
+      }
+    ]
+  }]
+}
