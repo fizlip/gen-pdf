@@ -44,11 +44,11 @@ struct Row {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 struct Document {
-    Rows: Vec<Row>
+    Rows: Vec<Vec<Block>>
 }
 
 fn read_json() -> Document {
-    let json_file = fs::read_to_string("./test2.json").expect("Could not read file");
+    let json_file = fs::read_to_string("./test.json").expect("Could not read file");
 
     let json: Document = serde_json::from_str(&json_file)
         .expect("JSON not well formatted");
@@ -58,11 +58,17 @@ fn read_json() -> Document {
 }
 
 fn parse_blocks(json:Document) {
+    for r in json.Rows.iter() {
+        for c in r.iter() {
+            println!("{}", c.content);
+        }
+    }
 }
 
 fn main() {
 
     let doc:Document = read_json();
+    parse_blocks(doc);
 
     // Create
     //let font_family = genpdf::fonts::from_files("./fonts", "Roboto", None)

@@ -1,5 +1,5 @@
 {"Rows":
-  [{"Blocks": 
+  [ 
     [
       {
         "Content": "LOGO",
@@ -20,5 +20,5 @@
         "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; width: 100%; background: transparent'><b>ANSTÄLLNINGSAVTAL</b>\n\n2024-04-01</p>"
       }
     ]
-  }]
+  ]
 }
