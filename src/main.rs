@@ -5,6 +5,8 @@ use genpdf::Alignment;
 use std::fs;
 use serde::Deserialize;
 use genpdf::Document;
+use regex::Regex;
+use genpdf::elements::StyledElement;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
@@ -58,6 +60,28 @@ fn read_json() -> SpekterDocument {
 
 }
 
+/**
+ * apply_css_styling will return a paragraph object that is styled according 
+ * to relevant css rules
+ *
+**/
+fn apply_css_styling(p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&str>) -> StyledElement<elements::Paragraph> {
+
+    let mut style = style::Style::new();
+
+    for attr in attrs {
+        match attr {
+            "font-size" => style.set_font_size(12),
+            _ => (),
+        };
+    }
+
+    println!("{:?}", style);
+    let paragraph = p.styled(style);
+
+    paragraph
+}
+
 fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
 
     for r in json.Rows.iter() {
@@ -68,14 +92,37 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
 
         for c in r.iter() {
 
-            row.push_element(
-                elements::Paragraph::default()
-                    .string(c.content.to_string())
-                    .styled(style::Style::new().with_font_size(8)),
-            );
+            let paragraph:elements::Paragraph = elements::Paragraph::default()
+                            .string(c.content.to_string());
+
+            //let paragraph = paragraph.styled(style::Style::new().with_font_size(8));
+
+            let attrs_regex = Regex::new(r"(?<attr>[a-zA-Z0-9_%-]*?):").unwrap();
+            let vals_regex  = Regex::new(r"(?<val>[a-zA-Z0-9_%-]*?);").unwrap();
+
+            let html = &c.raw;
+
+            let attrs: Vec<&str> = attrs_regex
+                .find_iter(html)
+                .map(|m| { 
+                    let s = m.as_str();
+                    let s = &s[0.. s.len()-1];
+                    s
+                }).collect();
+
+            let vals: Vec<&str>  = vals_regex
+                .find_iter(html)
+                .map(|m| {
+                    let s = m.as_str();
+                    let s = &s[0.. s.len()-1];
+                    s
+                }).collect();
+
+            let paragraph = apply_css_styling(paragraph, attrs, vals);
+
+            row.push_element(paragraph);
 
         }
-
         row.push().expect("Invalid table row");
         doc.push(table);
     }
@@ -92,33 +139,13 @@ fn main() {
 
     //// Customize page
     let mut decorator = genpdf::SimplePageDecorator::new();
-    decorator.set_margins(50);
+    decorator.set_margins(10);
 
     doc.set_page_decorator(decorator);
 
 
     let json:SpekterDocument = read_json();
     doc = parse_blocks(doc, json);
-
-    // Create
-
-    //let mut table = elements::TableLayout::new(vec![1,1]);
-    //table.set_cell_decorator(elements::FrameCellDecorator::new(false, false, false));
-    //let mut row = table.row();
-    //row.push_element(
-    //    elements::Paragraph::default()
-    //        .string("Fullmakts-givare")
-    //        .styled(style::Style::new().with_font_size(8)),
-    //);
-    //row.push_element(
-    //    elements::Paragraph::default()
-    //        .aligned(Alignment::Right)
-    //        .string("Namn")
-    //        .styled(style::Style::new().with_font_size(12)),
-    //);
-    //row.push().expect("Invalid table row");
-
-    //doc.push(table);
 
     doc.render_to_file("output.pdf").expect("Failed to write PDF file");
 

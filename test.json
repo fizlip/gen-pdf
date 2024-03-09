@@ -7,7 +7,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 64px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'>LOGO</p>"
+      "Raw": "<p style='font-size: 64px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'>LOGO</p>"
     },
     {
       "Content": "**ANSTÄLLNINGSAVTAL**\n\n2024-04-01",
@@ -16,7 +16,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><b>ANSTÄLLNINGSAVTAL</b>\n\n2024-04-01</p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><b>ANSTÄLLNINGSAVTAL</b>\n\n2024-04-01</p>"
     }
   ],
   [
@@ -27,7 +27,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
       }
   ],
   [
@@ -49,7 +49,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -60,7 +60,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'>Detta är ett anställningsavtal</p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'>Detta är ett anställningsavtal</p>"
     }
   ],
   [
@@ -71,7 +71,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -82,7 +82,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -93,7 +93,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus nunc et, interdum euismod enim congue quis. In auctor et felis vel pharetra. Cras nec felis sapien. Donec non elementum metus. Duist turpis vel magna accumsan fringilla nec vel nulla. Integer euismod interdum elit, quis convallis odio cursus vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'>lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus nunc et, interdum euismod enim congue quis. In auctor et felis vel pharetra. Cras nec felis sapien. Donec non elementum metus. Duist turpis vel magna accumsan fringilla nec vel nulla. Integer euismod interdum elit, quis convallis odio cursus vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>"
     }
   ],
   [
@@ -104,7 +104,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -115,7 +115,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -126,7 +126,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -137,7 +137,7 @@
       "Selected": true,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -148,7 +148,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -159,7 +159,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -170,7 +170,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -181,7 +181,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -192,7 +192,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ],
   [
@@ -203,7 +203,7 @@
       "Selected": false,
       "T": "text",
       "Render": "read",
-      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent'><br></p>"
+      "Raw": "<p style='font-size: 18px; padding-left: 0; padding-right: 0; font-family: arial; color: ; wIdth: 100%; background: transparent;'><br></p>"
     }
   ]
 ]
