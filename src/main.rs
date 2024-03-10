@@ -7,6 +7,7 @@ use serde::Deserialize;
 use genpdf::Document;
 use regex::Regex;
 use genpdf::elements::StyledElement;
+use genpdf::style::Color;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
@@ -51,13 +52,27 @@ struct SpekterDocument{
 }
 
 fn read_json() -> SpekterDocument {
-    let json_file = fs::read_to_string("./test.json").expect("Could not read file");
+    let json_file = fs::read_to_string("./test3.json").expect("Could not read file");
 
     let json: SpekterDocument = serde_json::from_str(&json_file)
         .expect("JSON not well formatted");
 
     json
 
+}
+
+fn get_color(color: &str) -> Color {
+    match color {
+        "red" =>  return Color::Rgb(255, 0, 0),
+        "blue" => return Color::Rgb(0, 0, 255),
+        "black" => return Color::Rgb(0,0,0),
+        "white" => return Color::Rgb(255, 255, 255),
+        "green" => return Color::Rgb(0, 255, 0),
+        "yellow" => return Color::Rgb(255, 255, 0),
+        "purple" => return Color::Rgb(170, 0, 255),
+        "pink" => return Color::Rgb(255, 0, 120),
+        _ => return Color::Rgb(0, 0, 0)
+    }
 }
 
 /**
@@ -69,11 +84,17 @@ fn apply_css_styling(p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&str>) 
 
     let mut style = style::Style::new();
 
+    let mut i = 0;
+
     for attr in attrs {
         match attr {
-            "font-size" => style.set_font_size(12),
+            "font-size" => style.set_font_size(vals[i][0..vals[i].len()-2].parse::<u8>().unwrap()/2),
+            "color" => style.set_color(get_color(vals[i])),
+            "font-style" => style.set_italic(),
+            "font-weight" => style.set_bold(),
             _ => (),
         };
+        i += 1;
     }
 
     println!("{:?}", style);
