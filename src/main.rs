@@ -1,4 +1,5 @@
 use genpdf::{elements, style};
+use std::convert::TryFrom;
 use genpdf::fonts::Font;
 use genpdf::Element;
 use genpdf::Alignment;
@@ -6,8 +7,8 @@ use std::fs;
 use serde::Deserialize;
 use genpdf::Document;
 use regex::Regex;
-use genpdf::elements::StyledElement;
 use genpdf::style::Color;
+use genpdf::elements::Image;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
@@ -52,7 +53,7 @@ struct SpekterDocument{
 }
 
 fn read_json() -> SpekterDocument {
-    let json_file = fs::read_to_string("./test3.json").expect("Could not read file");
+    let json_file = fs::read_to_string("./test9.json").expect("Could not read file");
 
     let json: SpekterDocument = serde_json::from_str(&json_file)
         .expect("JSON not well formatted");
@@ -62,6 +63,7 @@ fn read_json() -> SpekterDocument {
 }
 
 fn get_color(color: &str) -> Color {
+    println!("clolor {}", color);
     match color {
         "red" =>  return Color::Rgb(255, 0, 0),
         "blue" => return Color::Rgb(0, 0, 255),
@@ -80,7 +82,7 @@ fn get_color(color: &str) -> Color {
  * to relevant css rules
  *
 **/
-fn apply_css_styling(p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&str>) -> StyledElement<elements::Paragraph> {
+fn apply_css_styling(mut p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&str>) -> elements::StyledElement<elements::Paragraph> {
 
     let mut style = style::Style::new();
 
@@ -92,9 +94,11 @@ fn apply_css_styling(p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&str>) 
             "color" => style.set_color(get_color(vals[i])),
             "font-style" => style.set_italic(),
             "font-weight" => style.set_bold(),
+            "text-align" => p.set_alignment(genpdf::Alignment::Center),
             _ => (),
         };
         i += 1;
+
     }
 
     println!("{:?}", style);
@@ -112,36 +116,55 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
         let mut row = table.row();
 
         for c in r.iter() {
+            
+            if c.t == "text" {
+    
+                let mut paragraph:elements::Paragraph = elements::Paragraph::default()
+                                .string(c.content.to_string());
 
-            let paragraph:elements::Paragraph = elements::Paragraph::default()
-                            .string(c.content.to_string());
+                if c.content.to_string() == "<br>" {
+                    paragraph = elements::Paragraph::default()
+                        .string("");
+                }
 
-            //let paragraph = paragraph.styled(style::Style::new().with_font_size(8));
 
-            let attrs_regex = Regex::new(r"(?<attr>[a-zA-Z0-9_%-]*?):").unwrap();
-            let vals_regex  = Regex::new(r"(?<val>[a-zA-Z0-9_%-]*?);").unwrap();
+                let attrs_regex = Regex::new(r"(?<attr>[a-zA-Z0-9_%-]*?):").unwrap();
+                let vals_regex  = Regex::new(r"(?<val>[a-zA-Z0-9_%-]*?);").unwrap();
 
-            let html = &c.raw;
+                let html = &c.raw;
 
-            let attrs: Vec<&str> = attrs_regex
-                .find_iter(html)
-                .map(|m| { 
-                    let s = m.as_str();
-                    let s = &s[0.. s.len()-1];
-                    s
-                }).collect();
+                let attrs: Vec<&str> = attrs_regex
+                    .find_iter(html)
+                    .map(|m| { 
+                        let s = m.as_str();
+                        let s = &s[0.. s.len()-1];
+                        s
+                    }).collect();
 
-            let vals: Vec<&str>  = vals_regex
-                .find_iter(html)
-                .map(|m| {
-                    let s = m.as_str();
-                    let s = &s[0.. s.len()-1];
-                    s
-                }).collect();
+                let vals: Vec<&str>  = vals_regex
+                    .find_iter(html)
+                    .map(|m| {
+                        let s = m.as_str();
+                        let s = &s[0.. s.len()-1];
+                        s
+                    }).collect();
 
-            let paragraph = apply_css_styling(paragraph, attrs, vals);
+                let paragraph = apply_css_styling(paragraph, attrs, vals);
 
-            row.push_element(paragraph);
+                row.push_element(paragraph);
+            }
+
+            if c.t == "image" {
+                println!("image");
+                let image = elements::Image::from_path("/home/filip/Dokument/lawgpt/gen-pdf/tmp/sofie.png")
+                .expect("Failed to load image")
+                .with_alignment(genpdf::Alignment::Center)
+                .with_scale(genpdf::Scale::new(0.25, 0.25));
+
+                row.push_element(image);
+
+
+            }
 
         }
         row.push().expect("Invalid table row");
