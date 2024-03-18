@@ -10,6 +10,10 @@ use regex::Regex;
 use genpdf::style::Color;
 use genpdf::elements::Image;
 
+use std::path::Path;
+use std::process;
+use aws_sdk_s3::{ByteStream, Client, Error};
+
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 struct StyleElement {
@@ -174,7 +178,8 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
     doc
 }
 
-fn main() {
+#[tokio::main]
+async fn main() {
     // Create
     let font_family = genpdf::fonts::from_files("./fonts", "Roboto", None)
             .expect("Failed to load font family");
@@ -192,6 +197,31 @@ fn main() {
     doc = parse_blocks(doc, json);
 
     doc.render_to_file("output.pdf").expect("Failed to write PDF file");
+
+    let config = aws_config::load_from_env().await;
+    let client = Client::new(&config);
+    let file = ByteStream::from_path(Path::new("./output.pdf")).await;
+    let bucket = "f4-public";
+    let key = "output.pdf";
+
+    println!("config: {:?}", config);
+
+    let mut resp;
+
+    match file {
+        Ok(f) => {
+            resp = client
+                .put_object()
+                .bucket(bucket)
+                .key(key)
+                .body(f)
+                .send()
+                .await;
+        },
+        Err(e) => {
+            println!("Error uploading file {:?}", e);
+        }
+    };
 
     println!("File rendered to output.pdf");
 
