@@ -12,7 +12,9 @@ use genpdf::elements::Image;
 
 use std::path::Path;
 use std::process;
-use aws_sdk_s3::{ByteStream, Client, Error};
+use aws_sdk_s3::{ByteStream, Client};
+use std::fs::File;
+use std::io::prelude::*;
 
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
@@ -67,7 +69,6 @@ fn read_json() -> SpekterDocument {
 }
 
 fn get_color(color: &str) -> Color {
-    println!("clolor {}", color);
     match color {
         "red" =>  return Color::Rgb(255, 0, 0),
         "blue" => return Color::Rgb(0, 0, 255),
@@ -105,7 +106,6 @@ fn apply_css_styling(mut p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&st
 
     }
 
-    println!("{:?}", style);
     let paragraph = p.styled(style);
 
     paragraph
@@ -159,7 +159,6 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
             }
 
             if c.t == "image" {
-                println!("image");
                 let image = elements::Image::from_path("/home/filip/Dokument/lawgpt/gen-pdf/tmp/sofie.png")
                 .expect("Failed to load image")
                 .with_alignment(genpdf::Alignment::Center)
@@ -178,8 +177,7 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
     doc
 }
 
-#[tokio::main]
-async fn main() {
+async fn generate_pdf() {
     // Create
     let font_family = genpdf::fonts::from_files("./fonts", "Roboto", None)
             .expect("Failed to load font family");
@@ -199,12 +197,11 @@ async fn main() {
     doc.render_to_file("output.pdf").expect("Failed to write PDF file");
 
     let config = aws_config::load_from_env().await;
+    println!("{:?}", config);
     let client = Client::new(&config);
     let file = ByteStream::from_path(Path::new("./output.pdf")).await;
     let bucket = "f4-public";
     let key = "output.pdf";
-
-    println!("config: {:?}", config);
 
     let mut resp;
 
@@ -225,4 +222,9 @@ async fn main() {
 
     println!("File rendered to output.pdf");
 
+}
+
+#[tokio::main]
+async fn main() {
+    let res = generate_pdf().await;
 }
