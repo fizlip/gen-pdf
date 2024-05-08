@@ -59,7 +59,7 @@ struct SpekterDocument{
 }
 
 fn read_json() -> SpekterDocument {
-    let json_file = fs::read_to_string("./test9.json").expect("Could not read file");
+    let json_file = fs::read_to_string("./test-real.json").expect("Could not read file");
 
     let json: SpekterDocument = serde_json::from_str(&json_file)
         .expect("JSON not well formatted");
@@ -112,50 +112,67 @@ fn apply_css_styling(mut p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&st
 }
 
 fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
+    let attrs_regex = Regex::new(r"(?<attr>[a-zA-Z0-9_%-]*?):").unwrap();
+    let vals_regex  = Regex::new(r"(?<val>[a-zA-Z0-9_%-]*?);").unwrap();
 
     for r in json.Rows.iter() {
         let column_weights: Vec<usize> = r.iter().map(|_| 1).collect();
         let mut table = elements::TableLayout::new(column_weights);
-        table.set_cell_decorator(elements::FrameCellDecorator::new(false, false, false));
+        let mut has_border:bool = false;
+
         let mut row = table.row();
 
         for c in r.iter() {
             
             if c.t == "text" {
-    
-                let mut paragraph:elements::Paragraph = elements::Paragraph::default()
-                                .string(c.content.to_string());
 
-                if c.content.to_string() == "<br>" {
-                    paragraph = elements::Paragraph::default()
-                        .string("");
+                let mut column_content = elements::TableLayout::new(vec![1]);
+
+                for content in c.content.to_string().split("\n") {
+
+                    let mut row_col = column_content.row();
+
+                    let mut paragraph:elements::Paragraph = elements::Paragraph::default()
+                                    .string(" ".to_owned() + content);
+
+                    if c.content.to_string() == "<br>" {
+                        paragraph = elements::Paragraph::default()
+                            .string("");
+                    }
+
+
+                    let html = &c.raw;
+
+                    let attrs: Vec<&str> = attrs_regex
+                        .find_iter(html)
+                        .map(|m| { 
+                            let s = m.as_str();
+                            let s = &s[0.. s.len()-1];
+                            s
+                        }).collect();
+
+                    let vals: Vec<&str>  = vals_regex
+                        .find_iter(html)
+                        .map(|m| {
+                            let s = m.as_str();
+                            let s = &s[0.. s.len()-1];
+                            s
+                        }).collect();
+
+                    let paragraph = apply_css_styling(paragraph, attrs.clone(), vals);
+
+                    if(content.len() > 10) {
+                        has_border = attrs.contains(&"border")
+                            || attrs.contains(&"border-bottom")
+                            || attrs.contains(&"border-top")
+                            || attrs.contains(&"border-right")
+                            || attrs.contains(&"border-left");
+                    }
+
+                    row_col.push_element(paragraph);
+                    row_col.push();
                 }
-
-
-                let attrs_regex = Regex::new(r"(?<attr>[a-zA-Z0-9_%-]*?):").unwrap();
-                let vals_regex  = Regex::new(r"(?<val>[a-zA-Z0-9_%-]*?);").unwrap();
-
-                let html = &c.raw;
-
-                let attrs: Vec<&str> = attrs_regex
-                    .find_iter(html)
-                    .map(|m| { 
-                        let s = m.as_str();
-                        let s = &s[0.. s.len()-1];
-                        s
-                    }).collect();
-
-                let vals: Vec<&str>  = vals_regex
-                    .find_iter(html)
-                    .map(|m| {
-                        let s = m.as_str();
-                        let s = &s[0.. s.len()-1];
-                        s
-                    }).collect();
-
-                let paragraph = apply_css_styling(paragraph, attrs, vals);
-
-                row.push_element(paragraph);
+                row.push_element(column_content);
             }
 
             if c.t == "image" {
@@ -166,11 +183,18 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
 
                 row.push_element(image);
 
-
             }
 
         }
+
         row.push().expect("Invalid table row");
+
+        table.set_cell_decorator(
+            elements::FrameCellDecorator::new(has_border, has_border, false)
+        );
+
+        let b = genpdf::elements::Break::new(5);
+
         doc.push(table);
     }
 
