@@ -95,7 +95,7 @@ fn apply_css_styling(mut p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&st
 
     for attr in attrs {
         match attr {
-            "font-size" => style.set_font_size(vals[i][0..vals[i].len()-2].parse::<u8>().unwrap()/2),
+            "font-size" => style.set_font_size(vals[i][0..vals[i].len()-2].parse::<u8>().unwrap()-4),
             "color" => style.set_color(get_color(vals[i])),
             "font-style" => style.set_italic(),
             "font-weight" => style.set_bold(),
@@ -210,7 +210,7 @@ async fn generate_pdf() {
 
     //// Customize page
     let mut decorator = genpdf::SimplePageDecorator::new();
-    decorator.set_margins(10);
+    decorator.set_margins(20);
 
     doc.set_page_decorator(decorator);
 
