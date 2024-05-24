@@ -59,7 +59,7 @@ struct SpekterDocument{
 }
 
 fn read_json() -> SpekterDocument {
-    let json_file = fs::read_to_string("./test-real.json").expect("Could not read file");
+    let json_file = fs::read_to_string("./payment-plan-1.json").expect("Could not read file");
 
     let json: SpekterDocument = serde_json::from_str(&json_file)
         .expect("JSON not well formatted");
@@ -105,6 +105,8 @@ fn apply_css_styling(mut p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&st
         i += 1;
 
     }
+    let red = genpdf::style::Color::Rgb(255, 0, 0);
+    style.with_color(red);
 
     let paragraph = p.styled(style);
 
@@ -114,6 +116,7 @@ fn apply_css_styling(mut p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&st
 fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
     let attrs_regex = Regex::new(r"(?<attr>[a-zA-Z0-9_%-]*?):").unwrap();
     let vals_regex  = Regex::new(r"(?<val>[a-zA-Z0-9_%-]*?);").unwrap();
+    let md_regex  = Regex::new(r"(\*\*)|([#].)").unwrap();
 
     for r in json.Rows.iter() {
         let column_weights: Vec<usize> = r.iter().map(|_| 1).collect();
@@ -132,8 +135,10 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
 
                     let mut row_col = column_content.row();
 
+                    let parsed_content = md_regex.replace_all(content, "");
+
                     let mut paragraph:elements::Paragraph = elements::Paragraph::default()
-                                    .string(" ".to_owned() + content);
+                                    .string("".to_owned() + &parsed_content);
 
                     if c.content.to_string() == "<br>" {
                         paragraph = elements::Paragraph::default()
@@ -143,7 +148,7 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
 
                     let html = &c.raw;
 
-                    let attrs: Vec<&str> = attrs_regex
+                    let mut attrs: Vec<&str> = attrs_regex
                         .find_iter(html)
                         .map(|m| { 
                             let s = m.as_str();
@@ -151,7 +156,7 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
                             s
                         }).collect();
 
-                    let vals: Vec<&str>  = vals_regex
+                    let mut vals: Vec<&str>  = vals_regex
                         .find_iter(html)
                         .map(|m| {
                             let s = m.as_str();
@@ -159,19 +164,46 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
                             s
                         }).collect();
 
+                    // #..
+                    if(content.chars().next().unwrap() == '#') {
+                        //println!("LARGE");
+                        let fs: &str = "font-size";
+                        let mut v: &str = "16px";
+                        attrs.push(fs);
+                        // ##...
+                        if(content.chars().nth(1).unwrap() == '#') {
+                            // ###...
+                            if(content.chars().nth(2).unwrap() == '#') {
+                                v = "12px";
+                            }
+                            else {
+                                v = "14px";
+                            }
+                        }
+                        vals.push(v);
+                        println!("{:?}", attrs);
+                        println!("{:?}", vals);
+                    }
+                    if(content.chars().next().unwrap() == '-') {
+                        let fs: &str = "border-bottom";
+                        let mut v: &str = "1px solid black";
+                        attrs.push(fs);
+                        vals.push(v);
+                    }
+
+
                     let paragraph = apply_css_styling(paragraph, attrs.clone(), vals);
 
-                    if(content.len() > 10) {
-                        has_border = attrs.contains(&"border")
+                    has_border = attrs.contains(&"border")
                             || attrs.contains(&"border-bottom")
                             || attrs.contains(&"border-top")
                             || attrs.contains(&"border-right")
                             || attrs.contains(&"border-left");
-                    }
 
                     row_col.push_element(paragraph);
                     row_col.push();
                 }
+
                 row.push_element(column_content);
             }
 
@@ -188,9 +220,9 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
         }
 
         row.push().expect("Invalid table row");
-
+        let red = genpdf::style::Color::Rgb(255, 0, 0);
         table.set_cell_decorator(
-            elements::FrameCellDecorator::new(has_border, has_border, false)
+            elements::FrameCellDecorator::new(has_border, has_border, has_border)
         );
 
         let b = genpdf::elements::Break::new(5);
