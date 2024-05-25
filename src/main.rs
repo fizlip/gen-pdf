@@ -116,7 +116,7 @@ fn apply_css_styling(mut p: elements::Paragraph, attrs: Vec<&str>, vals: Vec<&st
 fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
     let attrs_regex = Regex::new(r"(?<attr>[a-zA-Z0-9_%-]*?):").unwrap();
     let vals_regex  = Regex::new(r"(?<val>[a-zA-Z0-9_%-]*?);").unwrap();
-    let md_regex  = Regex::new(r"(\*\*)|([#].)").unwrap();
+    let md_regex  = Regex::new(r"(\*\*)|([#].)|(-)").unwrap();
 
     for r in json.Rows.iter() {
         let column_weights: Vec<usize> = r.iter().map(|_| 1).collect();
@@ -189,6 +189,8 @@ fn parse_blocks(mut doc: Document, json:SpekterDocument) -> Document {
                         let mut v: &str = "1px solid black";
                         attrs.push(fs);
                         vals.push(v);
+                        attrs.push("font-size");
+                        vals.push("4px");
                     }
 
 
